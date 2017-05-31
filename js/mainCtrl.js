@@ -16,7 +16,7 @@ angular.module('chatroom').controller('mainCtrl', function($scope, messageServic
   //then post it to the backend.
   $scope.postMessage = function(message) {
     messageService.postMessage(message).then(function(response) {
-      console.log(response);
+      $scope.message = ''; //blank out input after posting.
     });
   };
 
@@ -25,6 +25,6 @@ angular.module('chatroom').controller('mainCtrl', function($scope, messageServic
    setInterval(function(){
     $scope.getMessages();
 
-  }, 3500);
+  }, 1500);
 
 });
